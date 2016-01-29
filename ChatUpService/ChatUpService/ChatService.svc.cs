@@ -1,58 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace ChatUpService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-
-
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true, InstanceContextMode = InstanceContextMode.Single)]
     public class ChatService : IChatService
     {
         public void SubmitPost(CustomPost post)
         {
-            using (var context = new ChatUp_DBEntities())
-            { 
-                var postis = new Post()
+            try
+            {
+                if (post == null) throw new Exception();
+                using (var context = new ChatUp_DBEntities())
                 {
-                    Submitter = post.Submitter,
-                    ChatRoomId = post.ChatRoomId,
-                    Comment = post.Comment,
-                    TimeSubmitted = post.TimeSubmitted
-
-                };
-                context.Post.Add(postis);
-                context.SaveChanges();
+                    var newPost = new Post
+                    {
+                        Submitter = post.Submitter,
+                        ChatRoomId = post.ChatRoomId,
+                        Comment = post.Comment,
+                        TimeSubmitted = post.TimeSubmitted
+                    };
+                    context.Post.Add(newPost);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<Exception>(ex);
             }
         }
 
         public ICollection<CustomPost> GetPosts(int chatRoomId)
         {
-            List<CustomPost> posts;
-            using (var context = new ChatUp_DBEntities())
+            try
             {
-                posts= context.Post.Where(x => x.ChatRoom.Id == chatRoomId).Select(y=>new CustomPost()
+                List<CustomPost> posts;
+                using (var context = new ChatUp_DBEntities())
                 {
-                    ChatRoomId = y.ChatRoomId,
-                    Id = y.Id,
-                    Comment = y.Comment,
-                    Submitter = y.Submitter,
-                    TimeSubmitted = y.TimeSubmitted
-                }).ToList();
-       
+                    posts = context.Post.Where(x => x.ChatRoom.Id == chatRoomId).Select(y => new CustomPost
+                    {
+                        ChatRoomId = y.ChatRoomId,
+                        Id = y.Id,
+                        Comment = y.Comment,
+                        Submitter = y.Submitter,
+                        TimeSubmitted = y.TimeSubmitted
+                    }).ToList();
+                }
+                if (posts.Count <= 0) throw new FaultException("No posts found");
+                return posts;
             }
-            return posts;
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
-        public void RemovePost(int chatId)
+        public void RemovePost(int postId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new ChatUp_DBEntities())
+                {
+                    var query = (from p in context.Post
+                                 where p.Id == postId
+                                 select p).FirstOrDefault();
+                    if (query == null) throw new FaultException("Post not found");
+
+                    context.Post.Remove(query);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new FaultException(exception.Message);
+            }
         }
     }
 }
