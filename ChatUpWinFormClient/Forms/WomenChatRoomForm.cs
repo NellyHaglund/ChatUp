@@ -62,6 +62,9 @@ namespace ChatUpWinFormClient.Forms
             }
             catch (Exception exception)
             {
+                //Här vill vi nog inte visa exception.Message, för då får användaren detta i en MessageBox: 
+                //"Ett fel inträffande under mottagning av http-svaret till http://localhost:20276/ChatService.svc/Woman. Det kan bero på att //tjänstens slutpunktsbindning inte använder http-protokollet. Det kan också bero på att en kontext för http-begäran har avbrutits av servern (troligtvis på grund av att tjänsten avslutas). Du hittar mer information i serverloggarna."
+                //Kanske bara ska stå typ "ett fel inträffade" eller något
                 MessageBox.Show(exception.Message);
             }
         }
