@@ -60,10 +60,6 @@
             this.listBox1.Size = new System.Drawing.Size(895, 404);
             this.listBox1.TabIndex = 3;
             // 
-            // backgroundWorker1
-            // 
-
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

@@ -8,6 +8,7 @@ namespace ChatUpService
     [ServiceBehavior(IncludeExceptionDetailInFaults = true, InstanceContextMode = InstanceContextMode.Single)]
     public class ChatService : IChatService
     {
+        //VARJE FEL SOM KASTAS/SKER SKALL SPARAS UNDAN I EN LOGG
         public void SubmitPost(CustomPost post)
         {
             try
