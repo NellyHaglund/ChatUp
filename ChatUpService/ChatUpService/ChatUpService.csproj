@@ -82,6 +82,7 @@
       <DependentUpon>ChatUpDB.edmx</DependentUpon>
       <LastGenOutput>ChatUpDB.cs</LastGenOutput>
     </Content>
+    <Content Include="ExceptionLog.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

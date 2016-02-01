@@ -28,36 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewMessageMen = new System.Windows.Forms.ListView();
-            this.richTextBoxMessageMen = new System.Windows.Forms.RichTextBox();
-            this.buttonSendMessageMen = new System.Windows.Forms.Button();
+            this.listViewMessageBoudoir = new System.Windows.Forms.ListView();
+            this.richTextBoxMessageBoudoir = new System.Windows.Forms.RichTextBox();
+            this.buttonSendMessageBoudoir = new System.Windows.Forms.Button();
             this.labelLoggedInMen = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listViewMessageMen
+            // listViewMessageBoudoir
             // 
-            this.listViewMessageMen.Location = new System.Drawing.Point(12, 29);
-            this.listViewMessageMen.Name = "listViewMessageMen";
-            this.listViewMessageMen.Size = new System.Drawing.Size(605, 283);
-            this.listViewMessageMen.TabIndex = 0;
-            this.listViewMessageMen.UseCompatibleStateImageBehavior = false;
+            this.listViewMessageBoudoir.LabelWrap = false;
+            this.listViewMessageBoudoir.Location = new System.Drawing.Point(12, 29);
+            this.listViewMessageBoudoir.MultiSelect = false;
+            this.listViewMessageBoudoir.Name = "listViewMessageBoudoir";
+            this.listViewMessageBoudoir.Size = new System.Drawing.Size(605, 283);
+            this.listViewMessageBoudoir.TabIndex = 0;
+            this.listViewMessageBoudoir.TileSize = new System.Drawing.Size(360, 36);
+            this.listViewMessageBoudoir.UseCompatibleStateImageBehavior = false;
+            this.listViewMessageBoudoir.View = System.Windows.Forms.View.Tile;
             // 
-            // richTextBoxMessageMen
+            // richTextBoxMessageBoudoir
             // 
-            this.richTextBoxMessageMen.Location = new System.Drawing.Point(12, 332);
-            this.richTextBoxMessageMen.Name = "richTextBoxMessageMen";
-            this.richTextBoxMessageMen.Size = new System.Drawing.Size(460, 123);
-            this.richTextBoxMessageMen.TabIndex = 1;
-            this.richTextBoxMessageMen.Text = "";
+            this.richTextBoxMessageBoudoir.Location = new System.Drawing.Point(12, 332);
+            this.richTextBoxMessageBoudoir.Name = "richTextBoxMessageBoudoir";
+            this.richTextBoxMessageBoudoir.Size = new System.Drawing.Size(460, 123);
+            this.richTextBoxMessageBoudoir.TabIndex = 1;
+            this.richTextBoxMessageBoudoir.Text = "";
             // 
-            // buttonSendMessageMen
+            // buttonSendMessageBoudoir
             // 
-            this.buttonSendMessageMen.Location = new System.Drawing.Point(478, 384);
-            this.buttonSendMessageMen.Name = "buttonSendMessageMen";
-            this.buttonSendMessageMen.Size = new System.Drawing.Size(139, 29);
-            this.buttonSendMessageMen.TabIndex = 2;
-            this.buttonSendMessageMen.Text = "Send message";
-            this.buttonSendMessageMen.UseVisualStyleBackColor = true;
+            this.buttonSendMessageBoudoir.Location = new System.Drawing.Point(478, 384);
+            this.buttonSendMessageBoudoir.Name = "buttonSendMessageBoudoir";
+            this.buttonSendMessageBoudoir.Size = new System.Drawing.Size(139, 29);
+            this.buttonSendMessageBoudoir.TabIndex = 2;
+            this.buttonSendMessageBoudoir.Text = "Send message";
+            this.buttonSendMessageBoudoir.UseVisualStyleBackColor = true;
+            this.buttonSendMessageBoudoir.Click += new System.EventHandler(this.buttonSendMessageBoudoir_Click);
             // 
             // labelLoggedInMen
             // 
@@ -74,13 +79,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 467);
             this.Controls.Add(this.labelLoggedInMen);
-            this.Controls.Add(this.buttonSendMessageMen);
-            this.Controls.Add(this.richTextBoxMessageMen);
-            this.Controls.Add(this.listViewMessageMen);
+            this.Controls.Add(this.buttonSendMessageBoudoir);
+            this.Controls.Add(this.richTextBoxMessageBoudoir);
+            this.Controls.Add(this.listViewMessageBoudoir);
             this.Name = "WomenChatRoomForm";
             this.Text = "Boudoir chat room";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.MenChatRoomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,9 +92,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewMessageMen;
-        private System.Windows.Forms.RichTextBox richTextBoxMessageMen;
-        private System.Windows.Forms.Button buttonSendMessageMen;
+        private System.Windows.Forms.ListView listViewMessageBoudoir;
+        private System.Windows.Forms.RichTextBox richTextBoxMessageBoudoir;
+        private System.Windows.Forms.Button buttonSendMessageBoudoir;
         private System.Windows.Forms.Label labelLoggedInMen;
     }
 }

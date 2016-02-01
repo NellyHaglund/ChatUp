@@ -36,11 +36,15 @@
             // 
             // listViewMessageMen
             // 
+            this.listViewMessageMen.LabelWrap = false;
             this.listViewMessageMen.Location = new System.Drawing.Point(12, 29);
+            this.listViewMessageMen.MultiSelect = false;
             this.listViewMessageMen.Name = "listViewMessageMen";
             this.listViewMessageMen.Size = new System.Drawing.Size(605, 283);
             this.listViewMessageMen.TabIndex = 0;
+            this.listViewMessageMen.TileSize = new System.Drawing.Size(360, 36);
             this.listViewMessageMen.UseCompatibleStateImageBehavior = false;
+            this.listViewMessageMen.View = System.Windows.Forms.View.Tile;
             // 
             // richTextBoxMessageMen
             // 
@@ -58,6 +62,7 @@
             this.buttonSendMessageMen.TabIndex = 2;
             this.buttonSendMessageMen.Text = "Send message";
             this.buttonSendMessageMen.UseVisualStyleBackColor = true;
+            this.buttonSendMessageMen.Click += new System.EventHandler(this.buttonSendMessageMen_Click);
             // 
             // labelLoggedInMen
             // 

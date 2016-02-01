@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 
@@ -34,9 +35,11 @@ namespace ChatUpService
             }
             catch (Exception ex)
             {
+                WriteToExceptionFile(ex);
                 throw new FaultException<Exception>(ex);
             }
         }
+
 
         public ICollection<CustomPost> GetPosts(int chatRoomId)
         {
@@ -59,6 +62,7 @@ namespace ChatUpService
             }
             catch (Exception ex)
             {
+                WriteToExceptionFile(ex);
                 throw new FaultException(ex.Message);
             }
         }
@@ -70,8 +74,8 @@ namespace ChatUpService
                 using (var context = new ChatUp_DBEntities())
                 {
                     var query = (from p in context.Post
-                                 where p.Id == postId
-                                 select p).FirstOrDefault();
+                        where p.Id == postId
+                        select p).FirstOrDefault();
                     if (query == null) throw new FaultException("Post not found");
 
                     context.Post.Remove(query);
@@ -80,8 +84,19 @@ namespace ChatUpService
             }
             catch (Exception exception)
             {
+                WriteToExceptionFile(exception);
                 throw new FaultException(exception.Message);
             }
+        }
+
+        private static void WriteToExceptionFile(Exception ex)
+        {
+            var directory = @"C:\ExceptionFolder\";
+
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            File.WriteAllText(Path.Combine(directory, "ExceptionLog.txt"), $"{ex.Message} @ {DateTime.Now}");
         }
     }
 }
