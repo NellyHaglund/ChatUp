@@ -24,8 +24,8 @@ namespace ChatUpService
         [DataMember]
 
         public int ChatRoomId { get; set; }
-        //[DataMember]
+        [DataMember]
 
-        //public CustomChatRoom ChatRoom { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

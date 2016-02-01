@@ -5,6 +5,7 @@
       <xs:element minOccurs="0" name="ChatRoomId" type="xs:int" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Submitter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeSubmitted" nillable="true" type="xs:dateTime" />
     </xs:sequence>
@@ -30,6 +31,7 @@
       <xs:element minOccurs="0" name="ChatRoomId" type="xs:int" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Submitter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeSubmitted" nillable="true" type="xs:dateTime" />
     </xs:sequence>

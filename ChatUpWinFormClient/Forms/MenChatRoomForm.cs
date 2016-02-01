@@ -26,10 +26,10 @@ namespace ChatUpWinFormClient.Forms
             _chatRoomId = 1;
             _client = new ChatServiceClient("ManCave");
             UpdateTexts();
-            var timer = new Timer();
-            timer.Interval = 1000;
-            timer.Tick += (sender, args) => UpdateTexts();
-            timer.Start();
+            //var timer = new Timer();
+            //timer.Interval = 1000;
+            //timer.Tick += (sender, args) => UpdateTexts();
+            //timer.Start();
         }
 
         private void MenChatRoomForm_Load(object sender, EventArgs e)
@@ -62,15 +62,24 @@ namespace ChatUpWinFormClient.Forms
             }
         }
         private void UpdateTexts()
-        {        
+        {
+
             listViewMessageMen.Clear();
             var result = _client.GetPosts(_chatRoomId);
-            foreach (var customPost in result)
+            if (result.Length == 0)
             {
-                listViewMessageMen.Items.Add(
-                    $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}");
+                listViewMessageMen.Items.Add("No posts here yet");
+            }
+            else
+            {
+                foreach (var customPost in result)
+                {
+                    listViewMessageMen.Items.Add(
+                        $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}");
+                } 
             }
             listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
+
         }
     }
 }

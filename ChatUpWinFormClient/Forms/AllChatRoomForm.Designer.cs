@@ -33,6 +33,7 @@
             this.richTextBoxMessageAll = new System.Windows.Forms.RichTextBox();
             this.listViewMessageAll = new System.Windows.Forms.ListView();
             this.buttonUpdateAll = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelLoggedInAll
@@ -84,11 +85,21 @@
             this.buttonUpdateAll.UseVisualStyleBackColor = true;
             this.buttonUpdateAll.Click += new System.EventHandler(this.buttonUpdateAll_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(479, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Remove Post";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AllChatRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 467);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUpdateAll);
             this.Controls.Add(this.labelLoggedInAll);
             this.Controls.Add(this.buttonSendMessageAll);
@@ -109,5 +120,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxMessageAll;
         private System.Windows.Forms.ListView listViewMessageAll;
         private System.Windows.Forms.Button buttonUpdateAll;
+        private System.Windows.Forms.Button button1;
     }
 }

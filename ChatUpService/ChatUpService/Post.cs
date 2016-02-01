@@ -19,6 +19,7 @@ namespace ChatUpService
         public string Comment { get; set; }
         public Nullable<System.DateTime> TimeSubmitted { get; set; }
         public int ChatRoomId { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual ChatRoom ChatRoom { get; set; }
     }

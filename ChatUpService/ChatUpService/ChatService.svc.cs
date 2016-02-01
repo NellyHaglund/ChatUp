@@ -27,7 +27,8 @@ namespace ChatUpService
                         Submitter = post.Submitter,
                         ChatRoomId = post.ChatRoomId,
                         Comment = post.Comment,
-                        TimeSubmitted = post.TimeSubmitted
+                        TimeSubmitted = post.TimeSubmitted,
+                        IsActive = post.IsActive
                     };
                     context.Post.Add(newPost);
                     context.SaveChanges();
@@ -45,7 +46,7 @@ namespace ChatUpService
         {
             try
             {
-                List<CustomPost> posts;
+                List<CustomPost> posts = new List<CustomPost>();
                 using (var context = new ChatUp_DBEntities())
                 {
                     posts = context.Post.Where(x => x.ChatRoom.Id == chatRoomId).Select(y => new CustomPost
@@ -54,10 +55,10 @@ namespace ChatUpService
                         Id = y.Id,
                         Comment = y.Comment,
                         Submitter = y.Submitter,
-                        TimeSubmitted = y.TimeSubmitted
+                        TimeSubmitted = y.TimeSubmitted,
+                        IsActive = y.IsActive
                     }).ToList();
                 }
-                if (posts.Count <= 0) throw new FaultException("No posts found");
                 return posts;
             }
             catch (Exception ex)
@@ -96,7 +97,7 @@ namespace ChatUpService
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
 
-            File.WriteAllText(Path.Combine(directory, "ExceptionLog.txt"), $"{ex.Message} @ {DateTime.Now}");
+            File.WriteAllText(Path.Combine(directory, "ExceptionLog.txt"), $"{ex.InnerException} @ {DateTime.Now}");
         }
     }
 }
