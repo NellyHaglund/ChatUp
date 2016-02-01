@@ -22,14 +22,15 @@ namespace ChatUpWinFormClient.Forms
         {
             InitializeComponent();
             _userName = userName;
-            labelLoggedInMen.Text = $"Logged in as: {userName}";
+            labelLoggedInMen.Text = $"Logged in as: {_userName}";
             _chatRoomId = 1;
             _client = new ChatServiceClient("ManCave");
+
             UpdateTexts();
-            //var timer = new Timer();
-            //timer.Interval = 1000;
-            //timer.Tick += (sender, args) => UpdateTexts();
-            //timer.Start();
+            var timer = new Timer();
+            timer.Interval = 3000;
+            timer.Tick += (sender, args) => UpdateTexts();
+            timer.Start();
         }
 
         private void MenChatRoomForm_Load(object sender, EventArgs e)
@@ -46,7 +47,8 @@ namespace ChatUpWinFormClient.Forms
                     Submitter = _userName,
                     TimeSubmitted = DateTime.Now,
                     Comment = richTextBoxMessageMen.Text,
-                    ChatRoomId = _chatRoomId
+                    ChatRoomId = _chatRoomId,
+                    IsActive = true
                 };
                 _client.SubmitPost(post);
                 richTextBoxMessageMen.Clear();
@@ -63,23 +65,42 @@ namespace ChatUpWinFormClient.Forms
         }
         private void UpdateTexts()
         {
-
             listViewMessageMen.Clear();
             var result = _client.GetPosts(_chatRoomId);
-            if (result.Length == 0)
+            foreach (var customPost in result)
             {
-                listViewMessageMen.Items.Add("No posts here yet");
+                ListViewItem item = new ListViewItem();
+                item.Name = customPost.Id.ToString();
+                item.Text = $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}";
+                listViewMessageMen.Items.Add(item);
+            }
+            listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //REMOVECLICKEVENT
+            var result = listViewMessageMen.SelectedItems;
+            if (result.Count > 0)
+            {
+                try
+                {
+                    _client.RemovePost(int.Parse(result[0].Name));
+                    UpdateTexts();
+                }
+                catch (FaultException exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
             }
             else
             {
-                foreach (var customPost in result)
-                {
-                    listViewMessageMen.Items.Add(
-                        $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}");
-                } 
+                MessageBox.Show("Choose a post to remove.");
             }
-            listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
-
         }
     }
 }

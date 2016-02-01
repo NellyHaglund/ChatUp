@@ -49,7 +49,7 @@ namespace ChatUpService
                 List<CustomPost> posts = new List<CustomPost>();
                 using (var context = new ChatUp_DBEntities())
                 {
-                    posts = context.Post.Where(x => x.ChatRoom.Id == chatRoomId).Select(y => new CustomPost
+                    posts = context.Post.Where(x => x.ChatRoom.Id == chatRoomId && x.IsActive == true).Select(y => new CustomPost
                     {
                         ChatRoomId = y.ChatRoomId,
                         Id = y.Id,
@@ -75,11 +75,13 @@ namespace ChatUpService
                 using (var context = new ChatUp_DBEntities())
                 {
                     var query = (from p in context.Post
-                        where p.Id == postId
-                        select p).FirstOrDefault();
-                    if (query == null) throw new FaultException("Post not found");
-
-                    context.Post.Remove(query);
+                                 where p.Id == postId
+                                 select p).FirstOrDefault();
+                    if (query == null)
+                    {
+                        throw new FaultException("Post not found");
+                    }
+                    query.IsActive = false;
                     context.SaveChanges();
                 }
             }

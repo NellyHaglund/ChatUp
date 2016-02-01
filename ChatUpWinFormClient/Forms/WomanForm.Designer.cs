@@ -96,7 +96,7 @@
             this.Controls.Add(this.buttonManToWoman);
             this.Controls.Add(this.buttonWomanToWoman);
             this.Name = "WomanForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WomanForm";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -96,7 +96,7 @@
             this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.buttonManToMan);
             this.Name = "ManForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManForm";
             this.Load += new System.EventHandler(this.ManForm_Load);
             this.ResumeLayout(false);

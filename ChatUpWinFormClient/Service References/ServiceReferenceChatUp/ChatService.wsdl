@@ -381,7 +381,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:20276/ChatService.svc/Man</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Lennart\NellyHaglund</Upn>
+          <Upn>JOHAN-ASUS\Johan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -390,7 +390,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:20276/ChatService.svc/All</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Lennart\NellyHaglund</Upn>
+          <Upn>JOHAN-ASUS\Johan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -399,7 +399,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:20276/ChatService.svc/Woman</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Lennart\NellyHaglund</Upn>
+          <Upn>JOHAN-ASUS\Johan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

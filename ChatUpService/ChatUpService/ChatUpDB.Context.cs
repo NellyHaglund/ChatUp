@@ -27,6 +27,5 @@ namespace ChatUpService
     
         public virtual DbSet<ChatRoom> ChatRoom { get; set; }
         public virtual DbSet<Post> Post { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -65,6 +65,7 @@
             // 
             // listViewMessageAll
             // 
+            this.listViewMessageAll.BackColor = System.Drawing.SystemColors.Window;
             this.listViewMessageAll.LabelWrap = false;
             this.listViewMessageAll.Location = new System.Drawing.Point(12, 32);
             this.listViewMessageAll.MultiSelect = false;
@@ -83,6 +84,7 @@
             this.buttonUpdateAll.TabIndex = 8;
             this.buttonUpdateAll.Text = "Update";
             this.buttonUpdateAll.UseVisualStyleBackColor = true;
+            this.buttonUpdateAll.Visible = false;
             this.buttonUpdateAll.Click += new System.EventHandler(this.buttonUpdateAll_Click);
             // 
             // button1
@@ -93,6 +95,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Remove Post";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AllChatRoomForm
             // 
@@ -106,7 +109,7 @@
             this.Controls.Add(this.richTextBoxMessageAll);
             this.Controls.Add(this.listViewMessageAll);
             this.Name = "AllChatRoomForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All chat room";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -67,16 +67,6 @@
           <NavigationProperty Name="ChatRoom" Relationship="Self.FK_Post_ChatRoom" FromRole="Post" ToRole="ChatRoom" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <Association Name="FK_Post_ChatRoom">
           <End Role="ChatRoom" Type="Self.ChatRoom" Multiplicity="1" />
           <End Role="Post" Type="Self.Post" Multiplicity="*" />
@@ -92,7 +82,6 @@
         <EntityContainer Name="ChatUp_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChatRoom" EntityType="Self.ChatRoom" />
           <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Post_ChatRoom" Association="Self.FK_Post_ChatRoom">
             <End Role="ChatRoom" EntitySet="ChatRoom" />
             <End Role="Post" EntitySet="Post" />

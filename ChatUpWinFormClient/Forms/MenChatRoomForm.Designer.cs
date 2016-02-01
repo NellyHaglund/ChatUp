@@ -32,12 +32,13 @@
             this.richTextBoxMessageMen = new System.Windows.Forms.RichTextBox();
             this.buttonSendMessageMen = new System.Windows.Forms.Button();
             this.labelLoggedInMen = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewMessageMen
             // 
             this.listViewMessageMen.LabelWrap = false;
-            this.listViewMessageMen.Location = new System.Drawing.Point(12, 29);
+            this.listViewMessageMen.Location = new System.Drawing.Point(12, 32);
             this.listViewMessageMen.MultiSelect = false;
             this.listViewMessageMen.Name = "listViewMessageMen";
             this.listViewMessageMen.Size = new System.Drawing.Size(605, 283);
@@ -48,7 +49,7 @@
             // 
             // richTextBoxMessageMen
             // 
-            this.richTextBoxMessageMen.Location = new System.Drawing.Point(12, 332);
+            this.richTextBoxMessageMen.Location = new System.Drawing.Point(12, 335);
             this.richTextBoxMessageMen.Name = "richTextBoxMessageMen";
             this.richTextBoxMessageMen.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageMen.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // buttonSendMessageMen
             // 
-            this.buttonSendMessageMen.Location = new System.Drawing.Point(478, 384);
+            this.buttonSendMessageMen.Location = new System.Drawing.Point(478, 387);
             this.buttonSendMessageMen.Name = "buttonSendMessageMen";
             this.buttonSendMessageMen.Size = new System.Drawing.Size(139, 29);
             this.buttonSendMessageMen.TabIndex = 2;
@@ -67,25 +68,35 @@
             // labelLoggedInMen
             // 
             this.labelLoggedInMen.AutoSize = true;
-            this.labelLoggedInMen.Location = new System.Drawing.Point(13, 6);
+            this.labelLoggedInMen.Location = new System.Drawing.Point(13, 9);
             this.labelLoggedInMen.Name = "labelLoggedInMen";
             this.labelLoggedInMen.Size = new System.Drawing.Size(46, 17);
             this.labelLoggedInMen.TabIndex = 3;
             this.labelLoggedInMen.Text = "label1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(479, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Remove Post";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MenChatRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 467);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelLoggedInMen);
             this.Controls.Add(this.buttonSendMessageMen);
             this.Controls.Add(this.richTextBoxMessageMen);
             this.Controls.Add(this.listViewMessageMen);
             this.Name = "MenChatRoomForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Man cave chat room";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.MenChatRoomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,5 +109,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxMessageMen;
         private System.Windows.Forms.Button buttonSendMessageMen;
         private System.Windows.Forms.Label labelLoggedInMen;
+        private System.Windows.Forms.Button button1;
     }
 }

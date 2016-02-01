@@ -35,7 +35,8 @@ namespace ChatUpWinFormClient.Forms
                     Submitter = _userName,
                     TimeSubmitted = DateTime.Now,
                     Comment = richTextBoxMessageAll.Text,
-                    ChatRoomId = 3
+                    ChatRoomId = _chatRoomId,
+                    IsActive = true
                 };
                 _client.SubmitPost(post);
                 richTextBoxMessageAll.Clear();
@@ -59,13 +60,41 @@ namespace ChatUpWinFormClient.Forms
         private void UpdateTexts()
         {
             listViewMessageAll.Clear();
-            var result = _client.GetPosts(3);
+            var result = _client.GetPosts(_chatRoomId);
             foreach (var customPost in result)
             {
-                listViewMessageAll.Items.Add(
-                    $"{customPost.Submitter} {customPost.TimeSubmitted}\r\n {customPost.Comment}:");
+                ListViewItem item = new ListViewItem();
+                item.Name = customPost.Id.ToString();
+                item.Text = $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}";
+                listViewMessageAll.Items.Add(item);
             }
             listViewMessageAll.Items[listViewMessageAll.Items.Count - 1].EnsureVisible();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //REMOVECLICKEVENT
+            var result = listViewMessageAll.SelectedItems;
+            if (result.Count > 0)
+            {
+                try
+                {
+                    _client.RemovePost(int.Parse(result[0].Name));
+                    UpdateTexts();
+                }
+                catch (FaultException exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Choose a post to remove.");
+            }
         }
     }
 }
