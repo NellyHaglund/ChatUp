@@ -15,6 +15,11 @@ namespace ChatUpService
                 if (post == null) throw new Exception();
                 using (var context = new ChatUp_DBEntities())
                 {
+                    var chatRooms = context.ChatRoom.Select(x => x.Id).ToList();
+                    if (!chatRooms.Contains(post.ChatRoomId))
+                    {
+                        throw new FaultException("Chat Room not found");
+                    }
                     var newPost = new Post
                     {
                         Submitter = post.Submitter,
