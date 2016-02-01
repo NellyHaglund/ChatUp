@@ -66,7 +66,7 @@ namespace ChatUpWinFormClient.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRemovePost_Click(object sender, EventArgs e)
         {
             //REMOVECLICKEVENT
             var result = listViewMessageBoudoir.SelectedItems;

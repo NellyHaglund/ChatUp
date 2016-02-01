@@ -71,7 +71,7 @@ namespace ChatUpWinFormClient.Forms
             listViewMessageAll.Items[listViewMessageAll.Items.Count - 1].EnsureVisible();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRemovePost_Click(object sender, EventArgs e)
         {
             //REMOVECLICKEVENT
             var result = listViewMessageAll.SelectedItems;
