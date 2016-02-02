@@ -7,10 +7,10 @@ namespace ChatUpWinFormClient.Forms
 {
     public partial class WomenChatRoomForm : Form
     {
-        private readonly string _userName;
         private readonly int _chatRoomId;
         private readonly ChatServiceClient _client;
         private readonly Timer _timer;
+        private readonly string _userName;
 
         public WomenChatRoomForm(string userName)
         {
@@ -18,12 +18,19 @@ namespace ChatUpWinFormClient.Forms
             _userName = userName;
             labelLoggedInWomen.Text = $"Logged in as: {_userName}";
             _chatRoomId = 2;
-            _client = new ChatServiceClient("All");
-
-            UpdateTexts();
-            _timer = new Timer {Interval = 3000};
-            _timer.Tick += (sender, args) => UpdateTexts();
-            _timer.Start();
+            _timer = new Timer { Interval = 3000 };
+            try
+            {
+                _client = new ChatServiceClient("Boudoir");
+                UpdateTexts();
+                _timer.Tick += (sender, args) => UpdateTexts();
+                _timer.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Not connected to the service, application will exit");
+                Application.Exit();
+            }
         }
 
         private void UpdateTexts()
@@ -95,6 +102,7 @@ namespace ChatUpWinFormClient.Forms
             }
             _timer.Start();
         }
+
         private void listViewMessageBoudoir_SelectedIndexChanged(object sender, EventArgs e)
         {
             _timer.Stop();
@@ -104,7 +112,7 @@ namespace ChatUpWinFormClient.Forms
         {
             _timer.Start();
 
-            int counter = richTextBoxMessageBoudoir.TextLength;
+            var counter = richTextBoxMessageBoudoir.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
         }
     }

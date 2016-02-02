@@ -7,21 +7,31 @@ namespace ChatUpWinFormClient.Forms
 {
     public partial class AllChatRoomForm : Form
     {
-        private readonly string _userName;
         private readonly int _chatRoomId;
         private readonly ChatServiceClient _client;
         private readonly Timer _timer;
+        private readonly string _userName;
+
         public AllChatRoomForm(string userName)
         {
             InitializeComponent();
             _userName = userName;
             labelLoggedInAll.Text = $"Logged in as: {_userName}";
             _chatRoomId = 3;
-            _client = new ChatServiceClient("All");
-            UpdateTexts();
             _timer = new Timer {Interval = 3000};
-            _timer.Tick += (sender, args) => UpdateTexts();
-            _timer.Start();
+
+            try
+            {
+                _client = new ChatServiceClient("All");
+                UpdateTexts();
+                _timer.Tick += (sender, args) => UpdateTexts();
+                _timer.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Not connected to the service, application will exit");
+                Application.Exit();
+            }
         }
 
         private void buttonSendMessageAll_Click(object sender, EventArgs e)
@@ -69,7 +79,7 @@ namespace ChatUpWinFormClient.Forms
                 };
                 listViewMessageAll.Items.Add(item);
             }
-            if(listViewMessageAll.Items.Count != 0)
+            if (listViewMessageAll.Items.Count != 0)
                 listViewMessageAll.Items[listViewMessageAll.Items.Count - 1].EnsureVisible();
         }
 
@@ -103,7 +113,7 @@ namespace ChatUpWinFormClient.Forms
         {
             _timer.Start();
 
-            int counter = richTextBoxMessageAll.TextLength;
+            var counter = richTextBoxMessageAll.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
         }
 

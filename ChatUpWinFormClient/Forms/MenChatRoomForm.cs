@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChatUpWinFormClient.ServiceReferenceChatUp;
 
@@ -14,10 +7,10 @@ namespace ChatUpWinFormClient.Forms
 {
     public partial class MenChatRoomForm : Form
     {
-        private readonly string _userName;
         private readonly int _chatRoomId;
         private readonly ChatServiceClient _client;
         private readonly Timer _timer;
+        private readonly string _userName;
 
         public MenChatRoomForm(string userName)
         {
@@ -25,11 +18,20 @@ namespace ChatUpWinFormClient.Forms
             _userName = userName;
             labelLoggedInMen.Text = $"Logged in as: {_userName}";
             _chatRoomId = 1;
-            _client = new ChatServiceClient("ManCave");
-            UpdateTexts();
             _timer = new Timer {Interval = 3000};
-            _timer.Tick += (sender, args) => UpdateTexts();
-            _timer.Start();
+
+            try
+            {
+                _client = new ChatServiceClient("ManCave");
+                UpdateTexts();
+                _timer.Tick += (sender, args) => UpdateTexts();
+                _timer.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Not connected to the service, application will exit");
+                Application.Exit();
+            }
         }
 
         private void buttonSendMessageMen_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show(exception.Message);
             }
         }
+
         private void UpdateTexts()
         {
             listViewMessageMen.Clear();
@@ -106,15 +109,13 @@ namespace ChatUpWinFormClient.Forms
             _timer.Stop();
         }
 
-   
+
         private void richTextBoxMessageMen_TextChanged(object sender, EventArgs e)
         {
-
             _timer.Start();
 
-            int counter = richTextBoxMessageMen.TextLength;
+            var counter = richTextBoxMessageMen.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
-
         }
     }
 }
