@@ -33,6 +33,7 @@
             this.buttonSendMessageMen = new System.Windows.Forms.Button();
             this.labelLoggedInMen = new System.Windows.Forms.Label();
             this.buttonRemovePost = new System.Windows.Forms.Button();
+            this.lblTextCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewMessageMen
@@ -52,10 +53,12 @@
             // 
             this.richTextBoxMessageMen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.richTextBoxMessageMen.Location = new System.Drawing.Point(12, 335);
+            this.richTextBoxMessageMen.MaxLength = 55;
             this.richTextBoxMessageMen.Name = "richTextBoxMessageMen";
             this.richTextBoxMessageMen.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageMen.TabIndex = 1;
             this.richTextBoxMessageMen.Text = "";
+            this.richTextBoxMessageMen.TextChanged += new System.EventHandler(this.richTextBoxMessageMen_TextChanged);
             // 
             // buttonSendMessageMen
             // 
@@ -88,6 +91,15 @@
             this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
+            // lblTextCounter
+            // 
+            this.lblTextCounter.AutoSize = true;
+            this.lblTextCounter.Location = new System.Drawing.Point(448, 441);
+            this.lblTextCounter.Name = "lblTextCounter";
+            this.lblTextCounter.Size = new System.Drawing.Size(24, 17);
+            this.lblTextCounter.TabIndex = 10;
+            this.lblTextCounter.Text = "55";
+            // 
             // MenChatRoomForm
             // 
             this.AcceptButton = this.buttonSendMessageMen;
@@ -95,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(629, 467);
+            this.Controls.Add(this.lblTextCounter);
             this.Controls.Add(this.buttonRemovePost);
             this.Controls.Add(this.labelLoggedInMen);
             this.Controls.Add(this.buttonSendMessageMen);
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Button buttonSendMessageMen;
         private System.Windows.Forms.Label labelLoggedInMen;
         private System.Windows.Forms.Button buttonRemovePost;
+        private System.Windows.Forms.Label lblTextCounter;
     }
 }

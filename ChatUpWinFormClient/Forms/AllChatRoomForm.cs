@@ -99,5 +99,16 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show("Choose a post to remove.");
             }
         }
+
+        private void richTextBoxMessageAll_TextChanged(object sender, EventArgs e)
+        {
+            int counter = richTextBoxMessageAll.TextLength;
+            lblTextCounter.Text = (55 - counter).ToString();
+
+            if (counter == 0)
+            {
+               
+            }
+        }
     }
 }

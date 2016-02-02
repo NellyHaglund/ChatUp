@@ -33,6 +33,7 @@
             this.richTextBoxMessageAll = new System.Windows.Forms.RichTextBox();
             this.listViewMessageAll = new System.Windows.Forms.ListView();
             this.buttonRemovePost = new System.Windows.Forms.Button();
+            this.lblTextCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelLoggedInAll
@@ -60,10 +61,12 @@
             // 
             this.richTextBoxMessageAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.richTextBoxMessageAll.Location = new System.Drawing.Point(12, 335);
+            this.richTextBoxMessageAll.MaxLength = 55;
             this.richTextBoxMessageAll.Name = "richTextBoxMessageAll";
             this.richTextBoxMessageAll.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageAll.TabIndex = 5;
             this.richTextBoxMessageAll.Text = "";
+            this.richTextBoxMessageAll.TextChanged += new System.EventHandler(this.richTextBoxMessageAll_TextChanged);
             // 
             // listViewMessageAll
             // 
@@ -89,6 +92,16 @@
             this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
+            // lblTextCounter
+            // 
+            this.lblTextCounter.AutoSize = true;
+            this.lblTextCounter.BackColor = System.Drawing.Color.LightGray;
+            this.lblTextCounter.Location = new System.Drawing.Point(448, 441);
+            this.lblTextCounter.Name = "lblTextCounter";
+            this.lblTextCounter.Size = new System.Drawing.Size(24, 17);
+            this.lblTextCounter.TabIndex = 10;
+            this.lblTextCounter.Text = "55";
+            // 
             // AllChatRoomForm
             // 
             this.AcceptButton = this.buttonSendMessageAll;
@@ -96,6 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(629, 467);
+            this.Controls.Add(this.lblTextCounter);
             this.Controls.Add(this.buttonRemovePost);
             this.Controls.Add(this.labelLoggedInAll);
             this.Controls.Add(this.buttonSendMessageAll);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxMessageAll;
         private System.Windows.Forms.ListView listViewMessageAll;
         private System.Windows.Forms.Button buttonRemovePost;
+        private System.Windows.Forms.Label lblTextCounter;
     }
 }

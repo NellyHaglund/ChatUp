@@ -104,5 +104,12 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show("Choose a post to remove.");
             }
         }
+
+        private void richTextBoxMessageMen_TextChanged(object sender, EventArgs e)
+        {
+            int counter = richTextBoxMessageMen.TextLength;
+            lblTextCounter.Text = (55 - counter).ToString();
+
+        }
     }
 }

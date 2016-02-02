@@ -33,6 +33,7 @@
             this.buttonSendMessageBoudoir = new System.Windows.Forms.Button();
             this.labelLoggedInWomen = new System.Windows.Forms.Label();
             this.buttonRemovePost = new System.Windows.Forms.Button();
+            this.lblTextCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewMessageBoudoir
@@ -52,10 +53,12 @@
             // 
             this.richTextBoxMessageBoudoir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.richTextBoxMessageBoudoir.Location = new System.Drawing.Point(12, 335);
+            this.richTextBoxMessageBoudoir.MaxLength = 55;
             this.richTextBoxMessageBoudoir.Name = "richTextBoxMessageBoudoir";
             this.richTextBoxMessageBoudoir.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageBoudoir.TabIndex = 1;
             this.richTextBoxMessageBoudoir.Text = "";
+            this.richTextBoxMessageBoudoir.TextChanged += new System.EventHandler(this.richTextBoxMessageBoudoir_TextChanged);
             // 
             // buttonSendMessageBoudoir
             // 
@@ -88,6 +91,15 @@
             this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
+            // lblTextCounter
+            // 
+            this.lblTextCounter.AutoSize = true;
+            this.lblTextCounter.Location = new System.Drawing.Point(448, 441);
+            this.lblTextCounter.Name = "lblTextCounter";
+            this.lblTextCounter.Size = new System.Drawing.Size(24, 17);
+            this.lblTextCounter.TabIndex = 10;
+            this.lblTextCounter.Text = "55";
+            // 
             // WomenChatRoomForm
             // 
             this.AcceptButton = this.buttonSendMessageBoudoir;
@@ -95,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(629, 467);
+            this.Controls.Add(this.lblTextCounter);
             this.Controls.Add(this.buttonRemovePost);
             this.Controls.Add(this.labelLoggedInWomen);
             this.Controls.Add(this.buttonSendMessageBoudoir);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Button buttonSendMessageBoudoir;
         private System.Windows.Forms.Label labelLoggedInWomen;
         private System.Windows.Forms.Button buttonRemovePost;
+        private System.Windows.Forms.Label lblTextCounter;
     }
 }
