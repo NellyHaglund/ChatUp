@@ -39,7 +39,8 @@ namespace ChatUpWinFormClient.Forms
                 };
                 listViewMessageBoudoir.Items.Add(item);
             }
-            listViewMessageBoudoir.Items[listViewMessageBoudoir.Items.Count - 1].EnsureVisible();
+            if (listViewMessageBoudoir.Items.Count != 0)
+                listViewMessageBoudoir.Items[listViewMessageBoudoir.Items.Count - 1].EnsureVisible();
         }
 
         private void buttonSendMessageBoudoir_Click(object sender, EventArgs e)
