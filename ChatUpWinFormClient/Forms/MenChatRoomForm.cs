@@ -32,7 +32,7 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show("Not connected to the service, application will exit");
                 Application.Exit();
             }
-            if (richTextBoxMessageMen.Text.Length == 0)
+            if (richTextBoxMessageMen.TextLength == 0)
             {
                 buttonSendMessageMen.Enabled = false;
             }

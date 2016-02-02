@@ -31,7 +31,7 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show("Not connected to the service, application will exit");
                 Application.Exit();
             }
-            if (richTextBoxMessageBoudoir.Text.Length == 0)
+            if (richTextBoxMessageBoudoir.TextLength == 0)
             {
                 buttonSendMessageBoudoir.Enabled = false;
             }
