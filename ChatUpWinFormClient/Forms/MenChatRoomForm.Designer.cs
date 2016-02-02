@@ -57,6 +57,7 @@
             this.richTextBoxMessageMen.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageMen.TabIndex = 1;
             this.richTextBoxMessageMen.Text = "";
+            this.richTextBoxMessageMen.TextChanged += new System.EventHandler(this.richTextBoxMessageMen_TextChanged);
             // 
             // buttonSendMessageMen
             // 

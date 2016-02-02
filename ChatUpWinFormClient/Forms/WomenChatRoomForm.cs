@@ -44,6 +44,7 @@ namespace ChatUpWinFormClient.Forms
 
         private void buttonSendMessageBoudoir_Click(object sender, EventArgs e)
         {
+            _timer.Start();
             try
             {
                 var post = new CustomPost
@@ -96,6 +97,11 @@ namespace ChatUpWinFormClient.Forms
         private void listViewMessageBoudoir_SelectedIndexChanged(object sender, EventArgs e)
         {
             _timer.Stop();
+        }
+
+        private void richTextBoxMessageBoudoir_TextChanged(object sender, EventArgs e)
+        {
+            _timer.Start();
         }
     }
 }

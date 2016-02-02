@@ -34,6 +34,7 @@ namespace ChatUpWinFormClient.Forms
 
         private void buttonSendMessageMen_Click(object sender, EventArgs e)
         {
+            _timer.Start();
             try
             {
                 var post = new CustomPost
@@ -96,11 +97,17 @@ namespace ChatUpWinFormClient.Forms
             {
                 MessageBox.Show("Choose a post to remove.");
             }
+            _timer.Start();
         }
 
         private void listViewMessageMen_SelectedIndexChanged(object sender, EventArgs e)
         {
             _timer.Stop();
+        }
+
+        private void richTextBoxMessageMen_TextChanged(object sender, EventArgs e)
+        {
+            _timer.Start();
         }
     }
 }

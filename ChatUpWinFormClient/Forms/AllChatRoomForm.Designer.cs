@@ -65,6 +65,7 @@
             this.richTextBoxMessageAll.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageAll.TabIndex = 5;
             this.richTextBoxMessageAll.Text = "";
+            this.richTextBoxMessageAll.TextChanged += new System.EventHandler(this.richTextBoxMessageAll_TextChanged);
             // 
             // listViewMessageAll
             // 
@@ -82,12 +83,13 @@
             // 
             // buttonRemovePost
             // 
+            this.buttonRemovePost.BackColor = System.Drawing.Color.Gray;
             this.buttonRemovePost.Location = new System.Drawing.Point(479, 2);
             this.buttonRemovePost.Name = "buttonRemovePost";
             this.buttonRemovePost.Size = new System.Drawing.Size(137, 23);
             this.buttonRemovePost.TabIndex = 9;
             this.buttonRemovePost.Text = "Remove Post";
-            this.buttonRemovePost.UseVisualStyleBackColor = true;
+            this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
             // buttonUpdateAll
@@ -100,16 +102,6 @@
             this.buttonUpdateAll.UseVisualStyleBackColor = true;
             this.buttonUpdateAll.Visible = false;
             this.buttonUpdateAll.Click += new System.EventHandler(this.buttonUpdateAll_Click);
-            // buttonRemovePost
-            // 
-            this.buttonRemovePost.BackColor = System.Drawing.Color.Gray;
-            this.buttonRemovePost.Location = new System.Drawing.Point(479, 2);
-            this.buttonRemovePost.Name = "buttonRemovePost";
-            this.buttonRemovePost.Size = new System.Drawing.Size(137, 23);
-            this.buttonRemovePost.TabIndex = 9;
-            this.buttonRemovePost.Text = "Remove Post";
-            this.buttonRemovePost.UseVisualStyleBackColor = false;
-            this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
             // AllChatRoomForm
             // 

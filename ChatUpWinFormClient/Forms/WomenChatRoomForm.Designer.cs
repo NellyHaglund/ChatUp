@@ -57,6 +57,7 @@
             this.richTextBoxMessageBoudoir.Size = new System.Drawing.Size(460, 123);
             this.richTextBoxMessageBoudoir.TabIndex = 1;
             this.richTextBoxMessageBoudoir.Text = "";
+            this.richTextBoxMessageBoudoir.TextChanged += new System.EventHandler(this.richTextBoxMessageBoudoir_TextChanged);
             // 
             // buttonSendMessageBoudoir
             // 
