@@ -9,7 +9,6 @@ namespace ChatUpService
     [ServiceBehavior(IncludeExceptionDetailInFaults = true, InstanceContextMode = InstanceContextMode.Single)]
     public class ChatService : IChatService
     {
-        //VARJE FEL SOM KASTAS/SKER SKALL SPARAS UNDAN I EN LOGG
         public void SubmitPost(CustomPost post)
         {
             try
@@ -37,34 +36,35 @@ namespace ChatUpService
             catch (Exception ex)
             {
                 WriteToExceptionFile(ex);
-                throw new FaultException<Exception>(ex);
+                throw new FaultException("An error occured, try again later");
             }
         }
-
 
         public ICollection<CustomPost> GetPosts(int chatRoomId)
         {
             try
             {
-                List<CustomPost> posts = new List<CustomPost>();
+                var posts = new List<CustomPost>();
                 using (var context = new ChatUp_DBEntities())
                 {
-                    posts = context.Post.Where(x => x.ChatRoom.Id == chatRoomId && x.IsActive == true).Select(y => new CustomPost
-                    {
-                        ChatRoomId = y.ChatRoomId,
-                        Id = y.Id,
-                        Comment = y.Comment,
-                        Submitter = y.Submitter,
-                        TimeSubmitted = y.TimeSubmitted,
-                        IsActive = y.IsActive
-                    }).ToList();
+                    posts =
+                        context.Post.Where(x => x.ChatRoom.Id == chatRoomId && x.IsActive == true)
+                            .Select(y => new CustomPost
+                            {
+                                ChatRoomId = y.ChatRoomId,
+                                Id = y.Id,
+                                Comment = y.Comment,
+                                Submitter = y.Submitter,
+                                TimeSubmitted = y.TimeSubmitted,
+                                IsActive = y.IsActive
+                            }).ToList();
                 }
                 return posts;
             }
             catch (Exception ex)
             {
                 WriteToExceptionFile(ex);
-                throw new FaultException(ex.Message);
+                throw new FaultException("An error occured, try again later");
             }
         }
 
@@ -75,8 +75,8 @@ namespace ChatUpService
                 using (var context = new ChatUp_DBEntities())
                 {
                     var query = (from p in context.Post
-                                 where p.Id == postId
-                                 select p).FirstOrDefault();
+                        where p.Id == postId
+                        select p).FirstOrDefault();
                     if (query == null)
                     {
                         throw new FaultException("Post not found");
@@ -88,18 +88,21 @@ namespace ChatUpService
             catch (Exception exception)
             {
                 WriteToExceptionFile(exception);
-                throw new FaultException(exception.Message);
+                throw new FaultException("An error occured, try again later");
             }
         }
 
         private static void WriteToExceptionFile(Exception ex)
         {
-            var directory = @"C:\ExceptionFolder\";
+            const string directory = @"C:\ExceptionFolder\";
 
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
 
-            File.WriteAllText(Path.Combine(directory, "ExceptionLog.txt"), $"{ex.InnerException} @ {DateTime.Now}");
+            using (var sw = new StreamWriter(File.Open(directory + "ExceptionLog.txt", FileMode.Append)))
+            {
+                sw.WriteLine($" ***** ERROR OCCURED @ {DateTime.Now} *****\r\n{ex.Message}\r\n{ex.StackTrace}\r\n");
+            }
         }
     }
 }
