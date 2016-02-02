@@ -61,11 +61,6 @@ namespace ChatUpWinFormClient.Forms
             }
         }
 
-        private void buttonUpdateAll_Click(object sender, EventArgs e)
-        {
-            UpdateTexts();
-        }
-
         private void UpdateTexts()
         {
             listViewMessageAll.Clear();
