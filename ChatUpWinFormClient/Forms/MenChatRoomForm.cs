@@ -71,7 +71,8 @@ namespace ChatUpWinFormClient.Forms
                 };
                 listViewMessageMen.Items.Add(item);
             }
-            listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
+            if (listViewMessageMen.Items.Count != 0)
+                listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
         }
 
         private void buttonRemovePost_Click(object sender, EventArgs e)

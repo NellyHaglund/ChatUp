@@ -44,7 +44,7 @@ namespace ChatUpService
         {
             try
             {
-                List<CustomPost> posts;
+                var posts = new List<CustomPost>();
                 using (var context = new ChatUp_DBEntities())
                 {
                     posts =
