@@ -121,10 +121,13 @@
   <data name="women-talking_2487880k" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\women-talking_2487880k.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tdy-130221-woman-talking-830a.vmodv4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tdy-130221-woman-talking-830a.vmodv4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="man-cave-warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\man-cave-warning.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tdy-130221-woman-talking-830a.vmodv4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tdy-130221-woman-talking-830a.vmodv4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="0b9d1172988e8b9909dfd2d0c8566733" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0b9d1172988e8b9909dfd2d0c8566733.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

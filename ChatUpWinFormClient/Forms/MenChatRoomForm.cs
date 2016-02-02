@@ -26,7 +26,6 @@ namespace ChatUpWinFormClient.Forms
             labelLoggedInMen.Text = $"Logged in as: {_userName}";
             _chatRoomId = 1;
             _client = new ChatServiceClient("ManCave");
-
             UpdateTexts();
             _timer = new Timer {Interval = 3000};
             _timer.Tick += (sender, args) => UpdateTexts();

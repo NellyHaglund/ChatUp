@@ -37,6 +37,7 @@
             // 
             // listViewMessageMen
             // 
+            this.listViewMessageMen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listViewMessageMen.LabelWrap = false;
             this.listViewMessageMen.Location = new System.Drawing.Point(12, 32);
             this.listViewMessageMen.MultiSelect = false;
@@ -50,6 +51,7 @@
             // 
             // richTextBoxMessageMen
             // 
+            this.richTextBoxMessageMen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.richTextBoxMessageMen.Location = new System.Drawing.Point(12, 335);
             this.richTextBoxMessageMen.Name = "richTextBoxMessageMen";
             this.richTextBoxMessageMen.Size = new System.Drawing.Size(460, 123);
@@ -58,12 +60,13 @@
             // 
             // buttonSendMessageMen
             // 
-            this.buttonSendMessageMen.Location = new System.Drawing.Point(478, 387);
+            this.buttonSendMessageMen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonSendMessageMen.Location = new System.Drawing.Point(478, 335);
             this.buttonSendMessageMen.Name = "buttonSendMessageMen";
-            this.buttonSendMessageMen.Size = new System.Drawing.Size(139, 29);
+            this.buttonSendMessageMen.Size = new System.Drawing.Size(139, 123);
             this.buttonSendMessageMen.TabIndex = 2;
             this.buttonSendMessageMen.Text = "Send message";
-            this.buttonSendMessageMen.UseVisualStyleBackColor = true;
+            this.buttonSendMessageMen.UseVisualStyleBackColor = false;
             this.buttonSendMessageMen.Click += new System.EventHandler(this.buttonSendMessageMen_Click);
             // 
             // labelLoggedInMen
@@ -77,12 +80,13 @@
             // 
             // buttonRemovePost
             // 
+            this.buttonRemovePost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonRemovePost.Location = new System.Drawing.Point(479, 2);
             this.buttonRemovePost.Name = "buttonRemovePost";
             this.buttonRemovePost.Size = new System.Drawing.Size(137, 23);
             this.buttonRemovePost.TabIndex = 9;
             this.buttonRemovePost.Text = "Remove Post";
-            this.buttonRemovePost.UseVisualStyleBackColor = true;
+            this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
             // MenChatRoomForm
@@ -90,12 +94,15 @@
             this.AcceptButton = this.buttonSendMessageMen;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(629, 467);
             this.Controls.Add(this.buttonRemovePost);
             this.Controls.Add(this.labelLoggedInMen);
             this.Controls.Add(this.buttonSendMessageMen);
             this.Controls.Add(this.richTextBoxMessageMen);
             this.Controls.Add(this.listViewMessageMen);
+            this.MaximumSize = new System.Drawing.Size(647, 514);
+            this.MinimumSize = new System.Drawing.Size(647, 514);
             this.Name = "MenChatRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Man cave chat room";

@@ -131,6 +131,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(328, 348);
+            this.MinimumSize = new System.Drawing.Size(328, 348);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChatUp Login";

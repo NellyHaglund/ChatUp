@@ -63,6 +63,16 @@ namespace ChatUpWinFormClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0b9d1172988e8b9909dfd2d0c8566733 {
+            get {
+                object obj = ResourceManager.GetObject("0b9d1172988e8b9909dfd2d0c8566733", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap man_cave_warning {
             get {
                 object obj = ResourceManager.GetObject("man-cave-warning", resourceCulture);
