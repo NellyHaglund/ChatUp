@@ -32,6 +32,10 @@ namespace ChatUpWinFormClient.Forms
                 MessageBox.Show("Not connected to the service, application will exit");
                 Application.Exit();
             }
+            if (richTextBoxMessageMen.Text.Length == 0)
+            {
+                buttonSendMessageMen.Enabled = false;
+            }
         }
 
         private void buttonSendMessageMen_Click(object sender, EventArgs e)
@@ -116,6 +120,8 @@ namespace ChatUpWinFormClient.Forms
 
             var counter = richTextBoxMessageMen.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
+            buttonSendMessageMen.Enabled = counter != 0;
+
         }
     }
 }
