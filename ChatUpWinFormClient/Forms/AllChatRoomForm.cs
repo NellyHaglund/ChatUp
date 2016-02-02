@@ -106,7 +106,7 @@ namespace ChatUpWinFormClient.Forms
             lblTextCounter.Text = (55 - counter).ToString();
         }
 
-        private void listViewMessageAll_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void listViewMessageAll_SelectedIndexChanged(object sender, EventArgs e)
         {
             _timer.Stop();
         }

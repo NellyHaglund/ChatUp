@@ -80,6 +80,7 @@
             this.listViewMessageAll.TileSize = new System.Drawing.Size(360, 36);
             this.listViewMessageAll.UseCompatibleStateImageBehavior = false;
             this.listViewMessageAll.View = System.Windows.Forms.View.Tile;
+            this.listViewMessageAll.SelectedIndexChanged += new System.EventHandler(this.listViewMessageAll_SelectedIndexChanged);
             // 
             // buttonRemovePost
             // 
