@@ -10,6 +10,7 @@ namespace ChatUpWinFormClient.Forms
         private readonly string _userName;
         private readonly int _chatRoomId;
         private readonly ChatServiceClient _client;
+        private readonly Timer _timer;
 
         public WomenChatRoomForm(string userName)
         {
@@ -20,21 +21,22 @@ namespace ChatUpWinFormClient.Forms
             _client = new ChatServiceClient("All");
 
             UpdateTexts();
-            var timer = new Timer();
-            timer.Interval = 3000;
-            timer.Tick += (sender, args) => UpdateTexts();
-            timer.Start();
+            _timer = new Timer {Interval = 3000};
+            _timer.Tick += (sender, args) => UpdateTexts();
+            _timer.Start();
         }
 
         private void UpdateTexts()
         {
             listViewMessageBoudoir.Clear();
-            var result = _client.GetPosts(_chatRoomId);
-            foreach (var customPost in result)
+            var posts = _client.GetPosts(_chatRoomId);
+            foreach (var post in posts)
             {
-                ListViewItem item = new ListViewItem();
-                item.Name = customPost.Id.ToString();
-                item.Text = $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}";
+                var item = new ListViewItem
+                {
+                    Name = post.Id.ToString(),
+                    Text = $"{post.Submitter} {post.TimeSubmitted} {post.Comment}"
+                };
                 listViewMessageBoudoir.Items.Add(item);
             }
             listViewMessageBoudoir.Items[listViewMessageBoudoir.Items.Count - 1].EnsureVisible();
@@ -42,6 +44,7 @@ namespace ChatUpWinFormClient.Forms
 
         private void buttonSendMessageBoudoir_Click(object sender, EventArgs e)
         {
+            _timer.Start();
             try
             {
                 var post = new CustomPost
@@ -62,16 +65,12 @@ namespace ChatUpWinFormClient.Forms
             }
             catch (Exception exception)
             {
-                //Här vill vi nog inte visa exception.Message, för då får användaren detta i en MessageBox: 
-                //"Ett fel inträffande under mottagning av http-svaret till http://localhost:20276/ChatService.svc/Woman. Det kan bero på att //tjänstens slutpunktsbindning inte använder http-protokollet. Det kan också bero på att en kontext för http-begäran har avbrutits av servern (troligtvis på grund av att tjänsten avslutas). Du hittar mer information i serverloggarna."
-                //Kanske bara ska stå typ "ett fel inträffade" eller något
                 MessageBox.Show(exception.Message);
             }
         }
 
         private void buttonRemovePost_Click(object sender, EventArgs e)
         {
-            //REMOVECLICKEVENT
             var result = listViewMessageBoudoir.SelectedItems;
             if (result.Count > 0)
             {
@@ -91,12 +90,19 @@ namespace ChatUpWinFormClient.Forms
             }
             else
             {
-                MessageBox.Show("Choose a post to remove.");
+                MessageBox.Show($"Choose a post to remove");
             }
+            _timer.Start();
+        }
+        private void listViewMessageBoudoir_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _timer.Stop();
         }
 
         private void richTextBoxMessageBoudoir_TextChanged(object sender, EventArgs e)
         {
+            _timer.Start();
+
             int counter = richTextBoxMessageBoudoir.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
         }

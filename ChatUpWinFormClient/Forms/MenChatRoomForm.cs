@@ -17,6 +17,7 @@ namespace ChatUpWinFormClient.Forms
         private readonly string _userName;
         private readonly int _chatRoomId;
         private readonly ChatServiceClient _client;
+        private readonly Timer _timer;
 
         public MenChatRoomForm(string userName)
         {
@@ -26,19 +27,14 @@ namespace ChatUpWinFormClient.Forms
             _chatRoomId = 1;
             _client = new ChatServiceClient("ManCave");
             UpdateTexts();
-            var timer = new Timer();
-            timer.Interval = 3000;
-            timer.Tick += (sender, args) => UpdateTexts();
-            timer.Start();
-        }
-
-        private void MenChatRoomForm_Load(object sender, EventArgs e)
-        {
-
+            _timer = new Timer {Interval = 3000};
+            _timer.Tick += (sender, args) => UpdateTexts();
+            _timer.Start();
         }
 
         private void buttonSendMessageMen_Click(object sender, EventArgs e)
         {
+            _timer.Start();
             try
             {
                 var post = new CustomPost
@@ -59,9 +55,6 @@ namespace ChatUpWinFormClient.Forms
             }
             catch (Exception exception)
             {
-                //Här vill vi nog inte visa exception.Message, för då får användaren detta i en MessageBox: 
-                //"Ett fel inträffande under mottagning av http-svaret till http://localhost:20276/ChatService.svc/Man. Det kan bero på att //tjänstens slutpunktsbindning inte använder http-protokollet. Det kan också bero på att en kontext för http-begäran har avbrutits av servern (troligtvis på grund av att tjänsten avslutas). Du hittar mer information i serverloggarna."
-                //Kanske bara ska stå typ "ett fel inträffade" eller något
                 MessageBox.Show(exception.Message);
             }
         }
@@ -71,9 +64,11 @@ namespace ChatUpWinFormClient.Forms
             var result = _client.GetPosts(_chatRoomId);
             foreach (var customPost in result)
             {
-                ListViewItem item = new ListViewItem();
-                item.Name = customPost.Id.ToString();
-                item.Text = $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}";
+                var item = new ListViewItem
+                {
+                    Name = customPost.Id.ToString(),
+                    Text = $"{customPost.Submitter} {customPost.TimeSubmitted} {customPost.Comment}"
+                };
                 listViewMessageMen.Items.Add(item);
             }
             listViewMessageMen.Items[listViewMessageMen.Items.Count - 1].EnsureVisible();
@@ -81,7 +76,6 @@ namespace ChatUpWinFormClient.Forms
 
         private void buttonRemovePost_Click(object sender, EventArgs e)
         {
-            //REMOVECLICKEVENT
             var result = listViewMessageMen.SelectedItems;
             if (result.Count > 0)
             {
@@ -103,10 +97,20 @@ namespace ChatUpWinFormClient.Forms
             {
                 MessageBox.Show("Choose a post to remove.");
             }
+            _timer.Start();
         }
 
+        private void listViewMessageMen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _timer.Stop();
+        }
+
+   
         private void richTextBoxMessageMen_TextChanged(object sender, EventArgs e)
         {
+
+            _timer.Start();
+
             int counter = richTextBoxMessageMen.TextLength;
             lblTextCounter.Text = (55 - counter).ToString();
 
