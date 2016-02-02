@@ -37,7 +37,7 @@
             // 
             // buttonWomanToWoman
             // 
-            this.buttonWomanToWoman.BackgroundImage = global::ChatUpWinFormClient.Properties.Resources.women_talking_2487880k;
+            this.buttonWomanToWoman.BackgroundImage = global::ChatUpWinFormClient.Properties.Resources._0b9d1172988e8b9909dfd2d0c8566733;
             this.buttonWomanToWoman.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonWomanToWoman.Location = new System.Drawing.Point(12, 201);
             this.buttonWomanToWoman.Name = "buttonWomanToWoman";
@@ -95,6 +95,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonManToWoman);
             this.Controls.Add(this.buttonWomanToWoman);
+            this.MaximumSize = new System.Drawing.Size(689, 562);
+            this.MinimumSize = new System.Drawing.Size(689, 562);
             this.Name = "WomanForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WomanForm";

@@ -95,6 +95,8 @@
             this.Controls.Add(this.buttonManToWoman);
             this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.buttonManToMan);
+            this.MaximumSize = new System.Drawing.Size(689, 562);
+            this.MinimumSize = new System.Drawing.Size(689, 562);
             this.Name = "ManForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManForm";

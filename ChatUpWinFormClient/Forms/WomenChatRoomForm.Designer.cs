@@ -37,6 +37,7 @@
             // 
             // listViewMessageBoudoir
             // 
+            this.listViewMessageBoudoir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.listViewMessageBoudoir.LabelWrap = false;
             this.listViewMessageBoudoir.Location = new System.Drawing.Point(12, 32);
             this.listViewMessageBoudoir.MultiSelect = false;
@@ -49,6 +50,7 @@
             // 
             // richTextBoxMessageBoudoir
             // 
+            this.richTextBoxMessageBoudoir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.richTextBoxMessageBoudoir.Location = new System.Drawing.Point(12, 335);
             this.richTextBoxMessageBoudoir.Name = "richTextBoxMessageBoudoir";
             this.richTextBoxMessageBoudoir.Size = new System.Drawing.Size(460, 123);
@@ -57,12 +59,13 @@
             // 
             // buttonSendMessageBoudoir
             // 
-            this.buttonSendMessageBoudoir.Location = new System.Drawing.Point(478, 387);
+            this.buttonSendMessageBoudoir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.buttonSendMessageBoudoir.Location = new System.Drawing.Point(478, 335);
             this.buttonSendMessageBoudoir.Name = "buttonSendMessageBoudoir";
-            this.buttonSendMessageBoudoir.Size = new System.Drawing.Size(139, 29);
+            this.buttonSendMessageBoudoir.Size = new System.Drawing.Size(139, 123);
             this.buttonSendMessageBoudoir.TabIndex = 2;
             this.buttonSendMessageBoudoir.Text = "Send message";
-            this.buttonSendMessageBoudoir.UseVisualStyleBackColor = true;
+            this.buttonSendMessageBoudoir.UseVisualStyleBackColor = false;
             this.buttonSendMessageBoudoir.Click += new System.EventHandler(this.buttonSendMessageBoudoir_Click);
             // 
             // labelLoggedInWomen
@@ -76,12 +79,13 @@
             // 
             // buttonRemovePost
             // 
+            this.buttonRemovePost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.buttonRemovePost.Location = new System.Drawing.Point(479, 2);
             this.buttonRemovePost.Name = "buttonRemovePost";
             this.buttonRemovePost.Size = new System.Drawing.Size(137, 23);
             this.buttonRemovePost.TabIndex = 9;
             this.buttonRemovePost.Text = "Remove Post";
-            this.buttonRemovePost.UseVisualStyleBackColor = true;
+            this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
             // WomenChatRoomForm
@@ -89,12 +93,15 @@
             this.AcceptButton = this.buttonSendMessageBoudoir;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(629, 467);
             this.Controls.Add(this.buttonRemovePost);
             this.Controls.Add(this.labelLoggedInWomen);
             this.Controls.Add(this.buttonSendMessageBoudoir);
             this.Controls.Add(this.richTextBoxMessageBoudoir);
             this.Controls.Add(this.listViewMessageBoudoir);
+            this.MaximumSize = new System.Drawing.Size(647, 514);
+            this.MinimumSize = new System.Drawing.Size(647, 514);
             this.Name = "WomenChatRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Boudoir chat room";

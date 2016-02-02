@@ -32,13 +32,13 @@
             this.buttonSendMessageAll = new System.Windows.Forms.Button();
             this.richTextBoxMessageAll = new System.Windows.Forms.RichTextBox();
             this.listViewMessageAll = new System.Windows.Forms.ListView();
-            this.buttonUpdateAll = new System.Windows.Forms.Button();
             this.buttonRemovePost = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelLoggedInAll
             // 
             this.labelLoggedInAll.AutoSize = true;
+            this.labelLoggedInAll.ForeColor = System.Drawing.Color.White;
             this.labelLoggedInAll.Location = new System.Drawing.Point(13, 9);
             this.labelLoggedInAll.Name = "labelLoggedInAll";
             this.labelLoggedInAll.Size = new System.Drawing.Size(46, 17);
@@ -47,16 +47,18 @@
             // 
             // buttonSendMessageAll
             // 
-            this.buttonSendMessageAll.Location = new System.Drawing.Point(478, 387);
+            this.buttonSendMessageAll.BackColor = System.Drawing.Color.Gray;
+            this.buttonSendMessageAll.Location = new System.Drawing.Point(478, 335);
             this.buttonSendMessageAll.Name = "buttonSendMessageAll";
-            this.buttonSendMessageAll.Size = new System.Drawing.Size(139, 29);
+            this.buttonSendMessageAll.Size = new System.Drawing.Size(139, 123);
             this.buttonSendMessageAll.TabIndex = 6;
             this.buttonSendMessageAll.Text = "Send message";
-            this.buttonSendMessageAll.UseVisualStyleBackColor = true;
+            this.buttonSendMessageAll.UseVisualStyleBackColor = false;
             this.buttonSendMessageAll.Click += new System.EventHandler(this.buttonSendMessageAll_Click);
             // 
             // richTextBoxMessageAll
             // 
+            this.richTextBoxMessageAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.richTextBoxMessageAll.Location = new System.Drawing.Point(12, 335);
             this.richTextBoxMessageAll.Name = "richTextBoxMessageAll";
             this.richTextBoxMessageAll.Size = new System.Drawing.Size(460, 123);
@@ -65,7 +67,7 @@
             // 
             // listViewMessageAll
             // 
-            this.listViewMessageAll.BackColor = System.Drawing.SystemColors.Window;
+            this.listViewMessageAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listViewMessageAll.LabelWrap = false;
             this.listViewMessageAll.Location = new System.Drawing.Point(12, 32);
             this.listViewMessageAll.MultiSelect = false;
@@ -76,25 +78,15 @@
             this.listViewMessageAll.UseCompatibleStateImageBehavior = false;
             this.listViewMessageAll.View = System.Windows.Forms.View.Tile;
             // 
-            // buttonUpdateAll
-            // 
-            this.buttonUpdateAll.Location = new System.Drawing.Point(479, 335);
-            this.buttonUpdateAll.Name = "buttonUpdateAll";
-            this.buttonUpdateAll.Size = new System.Drawing.Size(138, 27);
-            this.buttonUpdateAll.TabIndex = 8;
-            this.buttonUpdateAll.Text = "Update";
-            this.buttonUpdateAll.UseVisualStyleBackColor = true;
-            this.buttonUpdateAll.Visible = false;
-            this.buttonUpdateAll.Click += new System.EventHandler(this.buttonUpdateAll_Click);
-            // 
             // buttonRemovePost
             // 
+            this.buttonRemovePost.BackColor = System.Drawing.Color.Gray;
             this.buttonRemovePost.Location = new System.Drawing.Point(479, 2);
             this.buttonRemovePost.Name = "buttonRemovePost";
             this.buttonRemovePost.Size = new System.Drawing.Size(137, 23);
             this.buttonRemovePost.TabIndex = 9;
             this.buttonRemovePost.Text = "Remove Post";
-            this.buttonRemovePost.UseVisualStyleBackColor = true;
+            this.buttonRemovePost.UseVisualStyleBackColor = false;
             this.buttonRemovePost.Click += new System.EventHandler(this.buttonRemovePost_Click);
             // 
             // AllChatRoomForm
@@ -102,13 +94,15 @@
             this.AcceptButton = this.buttonSendMessageAll;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(629, 467);
             this.Controls.Add(this.buttonRemovePost);
-            this.Controls.Add(this.buttonUpdateAll);
             this.Controls.Add(this.labelLoggedInAll);
             this.Controls.Add(this.buttonSendMessageAll);
             this.Controls.Add(this.richTextBoxMessageAll);
             this.Controls.Add(this.listViewMessageAll);
+            this.MaximumSize = new System.Drawing.Size(647, 514);
+            this.MinimumSize = new System.Drawing.Size(647, 514);
             this.Name = "AllChatRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All chat room";
@@ -123,7 +117,6 @@
         private System.Windows.Forms.Button buttonSendMessageAll;
         private System.Windows.Forms.RichTextBox richTextBoxMessageAll;
         private System.Windows.Forms.ListView listViewMessageAll;
-        private System.Windows.Forms.Button buttonUpdateAll;
         private System.Windows.Forms.Button buttonRemovePost;
     }
 }
