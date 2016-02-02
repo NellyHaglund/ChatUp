@@ -32,20 +32,17 @@ namespace ChatUpWinFormClient
             {
                 if (radioButtonMan.Checked)
                 {
-                    //this.Hide();
-                    ManForm manForm = new ManForm(textBoxUserName.Text);
+                    var manForm = new ManForm(textBoxUserName.Text);
                     manForm.ShowDialog();
                     textBoxUserName.Text = "";
                     radioButtonMan.Checked = false;
                 }
                 else if (radioButtonWoman.Checked)
                 {
-                    //this.Hide();
-                    WomanForm womanForm = new WomanForm(textBoxUserName.Text);
+                    var womanForm = new WomanForm(textBoxUserName.Text);
                     womanForm.ShowDialog();
                     textBoxUserName.Text = "";
                     radioButtonWoman.Checked = false;
-
                 }
             }
         }

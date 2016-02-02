@@ -27,17 +27,14 @@ namespace ChatUpWinFormClient.Forms
 
         private void buttonManToMan_Click(object sender, EventArgs e)
         {
-            MenChatRoomForm menChatRoomForm = new MenChatRoomForm(_userName);
+            var menChatRoomForm = new MenChatRoomForm(_userName);
             menChatRoomForm.ShowDialog();
-            //this.Enabled = false;
         }
 
         private void buttonManToWoman_Click(object sender, EventArgs e)
         {
-            AllChatRoomForm allChatRoomForm = new AllChatRoomForm(_userName);
+            var allChatRoomForm = new AllChatRoomForm(_userName);
             allChatRoomForm.ShowDialog();
-            //this.Enabled = false;
-
         }
     }
 }

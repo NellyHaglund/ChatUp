@@ -46,6 +46,7 @@
             this.listViewMessageBoudoir.TileSize = new System.Drawing.Size(360, 36);
             this.listViewMessageBoudoir.UseCompatibleStateImageBehavior = false;
             this.listViewMessageBoudoir.View = System.Windows.Forms.View.Tile;
+            this.listViewMessageBoudoir.SelectedIndexChanged += new System.EventHandler(this.listViewMessageBoudoir_SelectedIndexChanged);
             // 
             // richTextBoxMessageBoudoir
             // 

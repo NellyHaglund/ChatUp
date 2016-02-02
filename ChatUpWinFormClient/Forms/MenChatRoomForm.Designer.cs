@@ -46,6 +46,7 @@
             this.listViewMessageMen.TileSize = new System.Drawing.Size(360, 36);
             this.listViewMessageMen.UseCompatibleStateImageBehavior = false;
             this.listViewMessageMen.View = System.Windows.Forms.View.Tile;
+            this.listViewMessageMen.SelectedIndexChanged += new System.EventHandler(this.listViewMessageMen_SelectedIndexChanged);
             // 
             // richTextBoxMessageMen
             // 
@@ -98,7 +99,6 @@
             this.Name = "MenChatRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Man cave chat room";
-            this.Load += new System.EventHandler(this.MenChatRoomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
